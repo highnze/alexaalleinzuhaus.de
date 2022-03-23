@@ -4,8 +4,8 @@ Das ist der Code zur Webseite www.allexaalleinzuhaus.de der Diplomarbeit von Lis
 Dieser basiert zum Großteil auf dem Javascript [bindery.js](https://github.com/evnbr/bindery) von Evan Brooks. Die Diplomarbeit geht der Frage nach »Kommt das Smart Home dem Verspechen von Sicherheit nach?« 
 
 ## Begleitende Playlist
-<a href="https://open.spotify.com/playlist/1cEgwreM7RhbkgfPLDEAID" target="_blank" rel="noopener">🎶 Spotify</a><br>
-<a href="https://tidal.com/browse/playlist/743f664d-e7d0-47bd-9e32-7ee039d37896" target="_blank" rel="noopener">🎶 Tidal</a><br>
+<a href="https://open.spotify.com/playlist/1cEgwreM7RhbkgfPLDEAID" target="_blank" rel="noopener">🎶 Spotify</a> &
+<a href="https://tidal.com/browse/playlist/743f664d-e7d0-47bd-9e32-7ee039d37896" target="_blank" rel="noopener">🎶 Tidal</a>
 
 # Improvements 
 
