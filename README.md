@@ -14,3 +14,7 @@ Dieser basiert zum Großteil auf dem Javascript [bindery.js](https://github.com/
 - [ ] Startseite webm responsiv in css setzten
 - [ ] für Firefox Browser Fehler beheben 
 - [ ] In Flipbook-Mode beim Klicken der Fußnoten-Hyperlinks keinen Seitenwechsel, sondern Sprung zum internen Link
+
+# Danke
+
+Besondern Dank geht an [Jörn Röder](https://github.com/joernroeder) für die Unterstützung bei der Programmierung!
