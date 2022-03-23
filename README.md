@@ -9,3 +9,4 @@ Dieser basiert zum Großteil auf dem Javascript [bindery.js](https://github.com/
 - [ ] Startseite .gif durch webm ersetzen 
 - [ ] Startseite webm responsiv in css setzten
 - [ ] für Firefox Browser Fehler beheben 
+- [ ] In Flipbook-Mode beim Klicken der Hyperlinks Fußnote kein Seitenwechsel, sondern Sprung zum internen Link
