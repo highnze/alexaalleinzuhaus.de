@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Alexa allein Zuhaus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Diplomarbeit von Lisa Heinze, welche der Frage nach geht: Kommt das Smart Home dem Versprechen von Sicherheit nach?"/>
+  <meta name="author" content="Lisa Heinze" />
+  <meta name="publisher" content="Lisa Heinze">
+  <meta name="copyright" content="Lisa Heinze" />
+  <meta name="keywords" lang="de" content="Smart Home, Sprachassistenten, Diplom, Design, Systemdesign, Kunsthochschule Kassel, Sicherheit, IT, Internet der Dinge">
+
+ <!-- Favicon -->
+ <link rel="icon" type="image/ico" href="assets/favicon.png" />
+
+ <!-- Loading stylesheets -->
+ <link rel="stylesheet" type="text/css" href="assets/font.css" />
+ <link rel="stylesheet" type="text/css" href="assets/stylesheet.css" />
+
+</head>
+
+<script>
+
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+
+// When the user clicks on Info, open the popup
+function myFunction() {
+  var popup = document.getElementById("PopupInfo");
+  popup.classList.toggle("show");
+}
+
+</script>
+
+<body>
+        <!--- webm ... funktioniert leider nicht gut responsiv - tbc 
+
+        <div id="backgroundVideo">
+                <video muted="" autoplay="" loop="" style="width: 100%; height: auto;">
+                        <source src="assets/aazh-bg.webm" type="video/webm">
+                </video></div>
+        -->
+
+        <div class="Navigation">
+                <button class="glow-on-hover" onclick=" window.open('https://alexaalleinzuhaus.de/publikation/','_self')"  type="button">Eintritt</button>
+
+                <div class="glow-on-hover" onclick="myFunction()">Info
+                        <span class="popuptext" id="PopupInfo"><p>Herzlich willkommen auf der Webseite<br> »Alexa allein Zuhaus«! <br><br>
+                                Diese Seite entstand im Zusammenhang mit der gleichnamigen Diplomarbeit von Lisa Heinze im Jahre 2022 . Durch den Button »Eintritt« wirst du zur virtuellen Publikation weitergeleitet. Für die optimale Darstellung der Inhalte wird empfohlen die Webseite mit Hilfe des <a href="https://www.google.com/chrome" target="_blank" rel="noopener">Google Chrome Browser</a> am Desktop zu öffnen.<br><br>
+                                Viel Vergnügen beim Lesen.</p></span>
+                </div>
+        </div>
+</body>
+
+</html>

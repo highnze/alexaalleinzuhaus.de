@@ -1,0 +1,15 @@
+/* FONTS */
+
+@font-face {
+    font-family: 'PP Mondwest';
+    src: url('/assets/fonts/PPMondwest/PPMondwest-Regular.woff') format('woff2');
+    src: url('/assets/fonts/PPMondwest/PPMondwest-Regular.woff') format('woff');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Edu Monument Grotesk Variable';
+    src: url('/assets/fonts/ABCMonument/EduMonumentGroteskVariable.woff2') format('woff2-variations');
+    src: url('/assets/fonts/ABCMonument/EduMonumentGroteskVariable.woff') format('woff-variations');
+    font-weight: 200 900;
+}

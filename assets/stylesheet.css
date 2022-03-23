@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: #59ffe9;
+    background-image: url('../assets/aazh-bg.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%; 
+}
+
+/*
+#backgroundVideo {
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: -1;
+  transform: translateY(-50%);
+}
+*/ 
+
+.Navigation {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+/* BUTTON EINTRITT */
+
+.glow-on-hover {
+    font-family: 'PP Mondwest', Lucida Console, Courier New, monospace;
+    font-size: 18pt;
+    line-height: 30pt;
+    text-align: center;
+    margin-bottom: 2vh;
+    margin-right: 12px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    outline: none;
+    color: #59ffe9;
+    background: #000;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 15px;
+    top: -8px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #78fae9, #2fb6d6, #526e94, #3e3343, #000000, #3e3343, #526e94, #2fb6d6, #59ffe9);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(8px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 15px;
+}
+
+.glow-on-hover:active {
+    color: #000;
+}
+
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 15px;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* Pop Up Button */
+
+/* Popup container */
+
+  /* The actual popup (appears on top) */
+  .glow-on-hover .popuptext {
+    font-family: 'PP Mondwest', Lucida Console, Courier New, monospace;
+    font-size: 16pt;
+    line-height: 21pt;
+    visibility: hidden;
+    width: 420px;
+    background-color: rgba(0, 0, 0, 0.90);
+    color: #fff;
+    border-radius: 15px;
+    position: absolute;
+    z-index: 1;
+    bottom: 140%;
+    left: 0;
+    margin-left: -154px;
+    padding: 1px 20px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+  }
+
+.glow-on-hover .popuptext a {
+    color: #59ffe9;
+    text-underline-offset: 1.5px;
+}
+  /* Popup arrow */
+  .glow-on-hover .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0) transparent transparent transparent;
+  }
+
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .glow-on-hover .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+
+/* RESPONSIV MOBIL VIEW – BACKGROUND IMAGE GIF & Popup*/
+
+@media only screen and (max-width: 375px) {
+    body {
+            background-size: 185%;
+        }
+    .glow-on-hover {
+        margin-bottom: 1vh;
+    }
+
+    .glow-on-hover .popuptext {
+        font-size: 10pt;
+        width: 250px;
+        margin-right: 10px;
+    }
+}
+
+@media only screen and (min-width: 376px) and (max-width: 400px) {
+    body {
+            background-size: 180%;
+        }
+    .glow-on-hover {
+        margin-bottom: 1vh;
+    }
+
+    .glow-on-hover .popuptext {
+        font-size: 12pt;
+        width: 300px;
+    }
+}
+@media only screen and (min-width: 401px) and (max-width: 720px) {
+    body {
+            background-size: 185%;
+        }
+        .glow-on-hover {
+            margin-bottom: 1vh;
+        }
+        .glow-on-hover .popuptext {
+            font-size: 12pt;
+            width: 350px;
+        }
+
+}
+
+@media only screen and (min-width: 721px) and (max-width: 1200px) {
+    body {
+            background-size: 190%;
+        }
+        .glow-on-hover {
+            margin-bottom: 1vh;
+
+        }
+
+        .glow-on-hover .popuptext {
+            font-size: 14pt;
+            width: 400px;
+        }
+}
+
+/* Button Mobile Ansicht */
+@supports (-webkit-touch-callout: none) {
+    body {
+        height: calc(var(--vh, 1vh) * 100);
+    }
+
+    .Navigation {
+        position: relative;
+    }
+  }
+

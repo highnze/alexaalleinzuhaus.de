@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Alexa allein Zuhaus – Diplomarbeit</title>
+
+        <!-- Metadaten -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Diplomarbeit von Lisa Heinze, welche der Frage nach geht: Kommt das Smart Home dem Versprechen von Sicherheit nach?" />
+        <meta name="author" content="Lisa Heinze" />
+        <meta name="publisher" content="Lisa Heinze">
+        <meta name="copyright" content="Lisa Heinze" />
+        <meta name="keywords" lang="de" content="Smart Home, Sprachassistenten, Diplom, Design, Systemdesign, Kunsthochschule Kassel, Sicherheit, IT, Internet der Dinge">
+        <!-- Favicon -->
+        <link rel="icon" type="image/ico" href="assets/img/favicon.png" />
+
+        <!-- Loading stylesheets -->
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+        <link rel="stylesheet" type="text/css" href="css/font.css" />
+    </head>
+
+    <body>
+
+        <!-- Loading the bindery.js – online-->
+        <script src="https://unpkg.com/bindery"></script>
+        <!-- Loading the copied and edited style.css file of bindery.js -->
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+        <!-- Here are all rules of bindery listed -->
+        <script>
+            // Table of content - Inhaltsverzeichnis - Only used for the Print-Version PDF
+            let tableContentPrint = Bindery.PageReference({
+                selector: ".toc a",
+                replace: (element, number) => {
+                    let row = document.createElement('div');
+                    row.innerHTML = `${element.textContent}`;
+                    row.innerHTML += `<span style='float: right;'>${number}</span>`;
+                    return row;
+                }
+            });
+
+            // Pagebreak (Seitenumbruch)
+            let breakRuleAutor = Bindery.PageBreak({
+                selector: '.autor',
+                position: 'after',
+                continue: 'next'
+            });
+
+            // Pagebreak (Seitenumbruch) After QR Code in the Intro
+            let breakRuleQRCode = Bindery.PageBreak({
+                selector: '.qr-code',
+                position: 'after',
+                continue: 'next'
+            });
+
+            // Pagebreak (Seitenumbruch) H1
+            let breakRuleH1 = Bindery.PageBreak({
+                selector: 'h1',
+                position: 'both',
+                continue: 'next'
+            });
+
+            // Pagebreak (Seitenumbruch) H2
+            let breakRuleH2 = Bindery.PageBreak({
+                selector: 'h2',
+                position: 'before',
+                continue: 'next'
+            });
+
+            // Pagebreak (Seitenumbruch) kap60
+            let breakRuleEID = Bindery.PageBreak({
+                selector: '.kap60',
+                position: 'before',
+                continue: 'next'
+            });
+
+            // Pagebreak (Seitenumbruch) kap7 Appendix
+            let breakRuleApp = Bindery.PageBreak({
+                selector: '.appendix',
+                position: 'before',
+                continue: 'right'
+            });
+
+            // Pagebreak (Seitenumbruch) for footnotes at the end
+            let SplitFuss = Bindery.PageBreak({
+                selector: '.footnote-item',
+                position: 'avoid'
+            });
+
+            // Pagebreak (Seitenumbruch) for blockquotes
+            let SplitZitat = Bindery.PageBreak({
+                selector: 'blockquote',
+                position: 'avoid',
+                continue: 'next'
+            });
+
+            // Pagebreak (Seitenumbruch) for blockquotes
+            let imaginationStaubsaugi = Bindery.PageBreak({
+                selector: '.imaginationStaubsaugi',
+                position: 'before',
+                continue: 'next'
+            });
+
+
+            // Create running headers & page number
+            let RunningHeader = Bindery.RunningHeader({
+                render: (page) => {
+                    if (page.isEmpty || page.number < 6) return '';
+                    if (page.isLeft) return `${page.number} × ${page.heading.h1 || ''} `;
+                    else if (page.isRight) return `${page.heading.h6 || ''} ${page.number}`;
+                }
+            });
+
+            // Rules for images
+            let imgImagination = Bindery.PageBreak({
+                selector: '.imagination',
+                position: 'before',
+                continue: 'next'
+            });
+
+            let imgImaginationIMG = Bindery.PageBreak({
+                selector: '.imaginationIMG',
+                position: 'both',
+                continue: 'next'
+            });
+
+            let imgImaginationIMGbig = Bindery.PageBreak({
+                selector: '.imaginationIMGbig',
+                position: 'both',
+                continue: 'next'
+            });
+
+            let schutzraumGIF = Bindery.FullBleedPage({
+                selector: '.schutzraum',
+                continue: 'same',
+                rotate: 'none'
+            });
+
+            // EVERYTHING IS COMING HERE TOGETHER
+            Bindery.makeBook({
+                content: {
+                    url: 'content.html',
+                    selector: ".content",
+                },
+                view: Bindery.View.FLIPBOOK,
+                pageSetup: {
+                    size: {
+                        width: '148mm',
+                        height: '210mm'
+                    },
+                    margin: {
+                        top: '14mm',
+                        inner: '16mm',
+                        outer: '16mm',
+                        bottom: '14mm'
+                    },
+                },
+                printSetup: {
+                    layout: Bindery.Layout.PAGES,
+                    paper: Bindery.Paper.AUTO,
+                    marks: Bindery.Marks.NONE,
+                    bleed: '12pt',
+                },
+                rules: [RunningHeader, breakRuleAutor, imgImaginationIMGbig, imaginationStaubsaugi, imgImaginationIMG, breakRuleQRCode, breakRuleEID, breakRuleH1, breakRuleH2, imgImagination, schutzraumGIF, SplitFuss, SplitZitat],
+            });
+        </script>
+
+        <!-- Download Button -->
+        <div class="download">
+            <label class="📖-control 📖-btn 📖-btn-print 📖-btn-main print-link-btn">
+                    <div>Download ▾</div>
+                    <input type="checkbox" class="dd-input">
+                            <ul class="dd-menu">
+                                <li><a href="https://github.com/highnze/" target="_blank" rel="noopener" >GitHub</a></li>
+                                <li><a href="downloads/Alexa allein Zuhaus – Diplomarbeit.pdf">PDF</a></li>
+                                <li><a href="downloads/Alexaalleinzuhaus_Diplomarbeit_LisaHeinze.md" download>Markdown</a></li>
+                            </ul>
+            </label>
+        </div>
+
+    </body>
+
+</html>

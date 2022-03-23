@@ -1,0 +1,851 @@
+body {
+    font-family: 'PP Mondwest', Lucida Console, Courier New, monospace;
+    font-weight: normal;
+}
+
+.📖-page {
+    width: var(--bindery-page-width);
+    height: var(--bindery-page-height);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap
+}
+
+.📖-continuation {
+    text-indent: unset !important
+}
+
+li.continuation {
+    list-style: none !important
+}
+
+.📖-flow-box {
+    position: relative;
+    margin-top: var(--bindery-margin-top);
+    flex: 1 1 auto;
+    min-height: 0
+}
+
+.📖-footer {
+    margin-top: 8pt;
+    margin-bottom: var(--bindery-margin-bottom);
+    flex: 0 1 auto;
+    z-index: 2
+}
+
+.📖-flow-box,
+.📖-footer {
+    margin-left: var(--bindery-margin-inner);
+    margin-right: var(--bindery-margin-outer)
+}
+
+.📖-left .📖-flow-box,
+.📖-left .📖-footer {
+    margin-left: var(--bindery-margin-outer);
+    margin-right: var(--bindery-margin-inner)
+}
+
+.📖-page-background {
+    position: absolute;
+    z-index: 0;
+    overflow: hidden;
+    top: calc(-1*var(--bindery-bleed));
+    bottom: calc(-1*var(--bindery-bleed));
+    left: calc(-1*var(--bindery-bleed));
+    right: calc(-1*var(--bindery-bleed))
+}
+
+.📖-left>.📖-page-background {
+    right: 0
+}
+
+.📖-right>.📖-page-background {
+    left: 0
+}
+
+.📖-sup {
+    font-size: .667em
+}
+
+.📖-footer,
+.📖-running-header {
+    font-size: 10pt
+}
+
+.📖-running-header {
+    position: absolute;
+    text-align: center;
+    top: 8mm;
+    /* Edit Lisa */
+}
+
+.📖-left .📖-running-header {
+    text-align: left;
+    left: 8mm; /* Edit Lisa Original: var(--bindery-margin-outer) */
+}
+
+.📖-right .📖-running-header {
+    right: 8mm;    /* Edit Lisa Original: var(--bindery-margin-outer) */
+    text-align: right
+}
+
+.📖-page-size-rotated {
+    height: var(--bindery-page-width);
+    width: var(--bindery-page-height)
+}
+
+.📖-spread-size {
+    height: var(--bindery-page-height);
+    width: calc(var(--bindery-page-width)*2)
+}
+
+.📖-spread-size-rotated {
+    width: var(--bindery-page-height);
+    height: calc(var(--bindery-page-width)*2)
+}
+
+.📖-spread.📖-right>.📖-page-background {
+    left: calc(-100% - var(--bindery-bleed))
+}
+
+.📖-spread.📖-left>.📖-page-background {
+    right: calc(-100% - var(--bindery-bleed))
+}
+
+@media screen {
+    .📖-viewing .📖-controls {
+        display: flex !important
+    }
+}
+
+.📖-controls {
+    font: 14px/1.4 -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    display: none;
+    flex-direction: row;
+    align-items: start;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    margin: auto;
+    color: var(--bindery-ui-text);
+    padding: 8px;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased
+}
+
+.📖-controls * {
+    font: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+.📖-controls a {
+    color: var(--bindery-ui-accent);
+    text-decoration: none
+}
+
+.📖-row {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    cursor: default;
+    user-select: none
+}
+
+.📖-controls .📖-btn {
+    -webkit-appearance: none;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 8px;
+    text-decoration: none
+}
+
+.📖-controls .📖-btn:hover {
+    background: rgba(0, 0, 0, .04)
+}
+
+.📖-controls .📖-btn:active {
+    background: rgba(0, 0, 0, .08)
+}
+
+.📖-controls .📖-btn:last-child {
+    margin-right: 0
+}
+
+.📖-control {
+    border-radius: 10px;
+    /* Edit */
+    color: var(--bindery-ui-text);
+    padding: 4px 8px;
+    border: 1px solid #fff;
+    /* EDIT: Auswahl oben links */
+    margin-right: 12px
+}
+
+.📖-controls .📖-btn-main {
+    display: none;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--bindery-ui-accent);
+    border-color: var(--bindery-ui-accent);
+    color: transparent;
+}
+
+.📖-controls .📖-btn-main:hover {
+    background: transparent
+}
+
+.📖-controls .📖-btn-main:active {
+    background: #000;
+    opacity: 1
+}
+
+.📖-controls .📖-btn-main:focus {
+    outline: 0;
+    box-shadow: 0 0 0 1px var(--bindery-ui-bg), 0 0 0 3px rgba(0, 0, 0, .3)
+}
+
+.📖-view-row {
+    transition: all .3s
+}
+
+.📖-in-progress .📖-view-row {
+    opacity: 0;
+    pointer-events: none
+}
+
+.📖-debug .📖-view-row {
+    display: none
+}
+
+.📖-btn-print {
+    margin-left: auto;
+    transition: all .3s
+}
+
+.📖-in-progress .📖-btn-print {
+    opacity: 0;
+    pointer-events: none
+}
+
+.📖-controls .📖-select-wrap {
+    padding-right: 24px;
+    transition: all .2s;
+    white-space: nowrap;
+    width: 100%;
+    position: relative
+}
+
+.📖-controls .📖-select-wrap:after {
+    content: "";
+    position: absolute;
+    right: 9px;
+    top: 12px;
+    padding: 0;
+    border: 4px solid transparent;
+    border-top-color: currentcolor
+}
+
+.📖-controls .📖-select-wrap:hover {
+    background: #59ffe9;
+    border-color: #59ffe9;
+    color: #000;
+}
+
+.📖-controls .📖-select-wrap:active {
+    background: rgba(0, 0, 0, .08)
+}
+
+.📖-controls .📖-select-wrap:focus-within {
+    outline: 0;
+    box-shadow: 0 0 0 1px var(--bindery-ui-bg), 0 0 0 3px rgba(0, 0, 0, .3)
+}
+
+.📖-select {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 4px 8px;
+    color: #000;
+    background-color: #59ffe9;
+    border: transparent;
+    width: 100%;
+    font-size: 12pt;
+}
+
+.📖-view-print .📖-controls {
+    background: var(--bindery-ui-bg)
+}
+
+@media screen and (max-width:960px) {
+    .📖-view-preview .📖-controls,
+    .📖-view-print .📖-controls {
+        background: var(--bindery-ui-bg);
+        flex-direction: column
+    }
+}
+
+@media screen and (max-width:500px) {
+    .📖-view-print .📖-controls {
+        background: var(--bindery-ui-bg)
+    }
+    .📖-view-row {
+        margin-bottom: 8px
+    }
+    .📖-print-options {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%
+    }
+    .📖-print-options .📖-row+.📖-row {
+        margin-top: 8px
+    }
+    .📖-print-options .📖-select-wrap {
+        margin: 0
+    }
+}
+
+.📖-left .📖-rotate-container.📖-rotate-outward,
+.📖-left .📖-rotate-container.📖-rotate-spread-clockwise,
+.📖-right .📖-rotate-container.📖-rotate-inward,
+.📖-rotate-container.📖-rotate-clockwise {
+    transform: rotate(90deg) translate3d(0, -100%, 0);
+    transform-origin: top left
+}
+
+.📖-left .📖-rotate-container.📖-rotate-inward,
+.📖-left .📖-rotate-container.📖-rotate-spread-counterclockwise,
+.📖-right .📖-rotate-container.📖-rotate-outward,
+.📖-rotate-container.📖-rotate-counterclockwise {
+    transform: rotate(-90deg) translate3d(-100%, 0, 0);
+    transform-origin: top left
+}
+
+.📖-rotate-container {
+    position: absolute
+}
+
+.📖-left .📖-rotate-container.📖-rotate-clockwise .📖-page-background {
+    top: 0
+}
+
+.📖-left .📖-rotate-container.📖-rotate-counterclockwise .📖-page-background,
+.📖-right .📖-rotate-container.📖-rotate-clockwise .📖-page-background {
+    bottom: 0
+}
+
+.📖-right .📖-rotate-container.📖-rotate-counterclockwise .📖-page-background {
+    top: 0
+}
+
+.📖-rotate-container.📖-rotate-inward .📖-page-background {
+    bottom: 0
+}
+
+.📖-rotate-container.📖-rotate-outward .📖-page-background {
+    top: 0
+}
+
+.📖-right .📖-rotate-container.📖-rotate-spread-clockwise {
+    transform: rotate(90deg) translate3d(0, -50%, 0);
+    transform-origin: top left
+}
+
+.📖-right .📖-rotate-container.📖-rotate-spread-counterclockwise {
+    transform: rotate(-90deg) translate3d(-100%, -50%, 0);
+    transform-origin: top left
+}
+
+:root {
+    --bindery-ui-bg: #000000;
+    --bindery-ui-accent: #000000;
+    --bindery-ui-text: #ffffff;
+    --bindery-paper-bg: #ffffff;
+    --bindery-paper-text: #000000;
+}
+
+@media screen {
+    .📖-root {
+        transition: opacity .2s;
+        opacity: 1;
+        background: var(--bindery-ui-bg);
+        z-index: 99;
+        position: relative;
+        min-height: 100vh
+    }
+    .📖-progress-bar {
+        transform-origin: top-left;         /* Original: top-left */
+        transform: scaleY(0);
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        background: #59ffe9;         /* Edit Lisa Vorher: --bindery-ui-accent */
+        transition: transform .2s;
+        height: 12px;         /* dicker gemacht */
+        box-shadow: 0px 0px 17px #59ffe9d5;         /* Edit Lisa: Hinzugefügt */
+        z-index: 99
+    }
+    .📖-in-progress .📖-progress-bar {
+        transform: scaleX(0)
+    }
+    .📖-zoom-content {
+        padding: 10px;
+        background: var(--bindery-ui-bg);
+        margin: auto
+    }
+    .📖-view-preview .📖-zoom-content {
+        min-width: calc(20px + var(--bindery-spread-width))
+    }
+    .📖-view-print .📖-zoom-content {
+        min-width: calc(20px + var(--bindery-sheet-width))
+    }
+    .📖-zoom-content>.📖-page {
+        margin: auto
+    }
+    .📖-measure-area {
+        position: fixed;
+        padding: 50px 20px;
+        z-index: 99;
+        visibility: hidden;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        overflow: hidden
+    }
+    .📖-is-overflowing {
+        border-bottom: 1px solid #f0f
+    }
+    .📖-print-sheet {
+        margin: 0 auto
+    }
+    .📖-error {
+        font-family: 'PP Mondwest', Lucida Console, Courier New, monospace;      /* Lisa Edit */
+        font-weight: normal;     /* Lisa Edit */
+        font-size: 14pt;            /* Lisa Edit - original 16pt*/
+        color: #ff0088;         /* Lisa Edit */
+        padding: 15vh 15vw;
+        z-index: 999;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #57ffe940; /* Lisa Edit */
+    }
+
+    .📖-error-title {
+        font-size: 1.5em;
+        margin-bottom: 16px;
+    }
+    .📖-error-text {
+        margin-bottom: 1em;
+        white-space: pre-line
+    }
+    .📖-error-footer {
+        opacity: .5;
+        font-size: .7em; /* Lisa edit */
+        text-transform: uppercase;
+        letter-spacing: .02em
+    }
+
+    .📖-error .print-link-btn {
+        background-color: pink;
+    }
+
+    .📖-show-bleed .📖-print-sheet {
+        background-color: #fff;
+        outline: 1.75px solid rgba(255, 255, 255);
+        /* Edit: Outline Print-Preview */
+        box-shadow: 0 1px 10px rgba(255, 255, 255, 1);
+        margin: 20px auto
+    }
+}
+
+@media screen {
+    .📖-page {
+        background: #000;
+        /* EDIT: Seiten-Farbe - Alle Views */
+        box-shadow: 0 0 8px 0 rgb(89, 255, 233, 0.75);
+        /* EDIT: Outline Shadow Grid-View */
+        border: solid white 0.75px;
+        /* EDIT: Outline Grid-View */
+        overflow: hidden
+    }
+    .📖-show-bleed .📖-page {
+        background: var(--bindery-paper-bg);
+        /* ADDED Print Preview */
+        color: var(--bindery-paper-text) !important;
+        /* ADDED Print Preview */
+        box-shadow: none;
+        overflow: visible;
+    }
+    .📖-show-bleed .📖-page:after {
+        content: "";
+        outline: 1px dotted rgba(0, 255, 255, .7);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        z-index: 99
+    }
+    .📖-placeholder-num {
+        visibility: hidden !important
+    }
+}
+
+.📖-print-sheet {
+    width: var(--bindery-sheet-width);
+    height: var(--bindery-sheet-height)
+}
+
+.📖-page-bleed-clip {
+    overflow: hidden
+}
+
+.📖-page-bleed-clip-left {
+    padding-left: calc(var(--bindery-bleed) + 12pt)
+}
+
+.📖-page-bleed-clip-right {
+    padding-right: calc(var(--bindery-bleed) + 12pt)
+}
+
+.📖-show-bleed-marks .📖-print-sheet .📖-page-bleed-clip,
+.📖-show-crop .📖-print-sheet .📖-page-bleed-clip {
+    padding-top: calc(var(--bindery-bleed) + 12pt);
+    padding-bottom: calc(var(--bindery-bleed) + 12pt)
+}
+
+.📖-print-sheet-spread .📖-spread-wrapper {
+    margin-left: auto;
+    margin-right: auto
+}
+
+.📖-viewing {
+    margin: 0
+}
+
+.📖-zoom-scaler {
+    transform-origin: top left;
+    transform-style: preserve-3d
+}
+
+.📖-print-sheet {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s
+}
+
+.📖-print-sheet-left {
+    justify-content: left,
+}
+
+.📖-print-sheet-right {
+    justify-content: right
+}
+
+.📖-spread-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: auto
+}
+
+.📖-spread-centered {
+    margin: 0 auto 32px
+}
+
+@page {
+    margin: 0
+}
+
+@media print {
+    .📖-page {
+        background: var(--bindery-paper-bg);
+        color: var(--bindery-paper-text);
+    }
+    .📖-root * {
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact,
+    }
+    .📖-controls {
+        display: none !important
+    }
+    .📖-print-sheet {
+        contain: layout;
+        margin: 0 auto;
+        page-break-after: always
+    }
+    .📖-zoom-scaler[style] {
+        transform: none !important
+    }
+}
+
+.📖-print-mark-wrap {
+    display: none;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    margin: auto
+}
+
+.📖-show-bleed-marks .📖-print-mark-wrap,
+.📖-show-crop .📖-print-mark-wrap {
+    display: block
+}
+
+.📖-show-crop .📖-print-mark-wrap>[class*=crop] {
+    display: block
+}
+
+.📖-show-bleed-marks .📖-print-mark-wrap>[class*=bleed] {
+    display: block
+}
+
+.📖-print-mark-wrap>div {
+    display: none;
+    position: absolute;
+    overflow: hidden
+}
+
+.📖-print-mark-wrap>div:after,
+.📖-print-mark-wrap>div:before {
+    content: "";
+    display: block;
+    position: absolute
+}
+
+.📖-print-mark-wrap>div:before {
+    top: 0;
+    left: 0
+}
+
+.📖-print-mark-wrap>div:after {
+    bottom: 0;
+    right: 0
+}
+
+.📖-mark-bleed-left,
+.📖-mark-bleed-right,
+.📖-mark-crop-fold,
+.📖-mark-crop-left,
+.📖-mark-crop-right {
+    width: 1px;
+    margin: auto
+}
+
+.📖-mark-bleed-left:after,
+.📖-mark-bleed-left:before,
+.📖-mark-bleed-right:after,
+.📖-mark-bleed-right:before,
+.📖-mark-crop-fold:after,
+.📖-mark-crop-fold:before,
+.📖-mark-crop-left:after,
+.📖-mark-crop-left:before,
+.📖-mark-crop-right:after,
+.📖-mark-crop-right:before {
+    width: 1px;
+    height: var(--bindery-mark-length);
+    background-image: linear-gradient(90deg, #000 0, #000 51%, transparent 0);
+    background-size: 1px 100%
+}
+
+.📖-mark-bleed-bottom,
+.📖-mark-bleed-top,
+.📖-mark-crop-bottom,
+.📖-mark-crop-top {
+    height: 1px
+}
+
+.📖-mark-bleed-bottom:after,
+.📖-mark-bleed-bottom:before,
+.📖-mark-bleed-top:after,
+.📖-mark-bleed-top:before,
+.📖-mark-crop-bottom:after,
+.📖-mark-crop-bottom:before,
+.📖-mark-crop-top:after,
+.📖-mark-crop-top:before {
+    width: var(--bindery-mark-length);
+    height: 1px;
+    background-image: linear-gradient(180deg, #000 0, #000 51%, transparent 0);
+    background-size: 100% 1px
+}
+
+.📖-mark-crop-fold {
+    right: 0;
+    left: 0
+}
+
+.📖-mark-crop-left {
+    left: 0
+}
+
+.📖-mark-crop-right {
+    right: 0
+}
+
+.📖-mark-crop-top {
+    top: 0
+}
+
+.📖-mark-crop-bottom {
+    bottom: 0
+}
+
+.📖-print-meta {
+    padding: var(--bindery-mark-length);
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    font-size: 8pt;
+    display: block !important;
+    position: absolute;
+    bottom: -60pt;
+    left: 0;
+    right: 0
+}
+
+.📖-mark-bleed-left,
+.📖-mark-bleed-right,
+.📖-mark-crop-fold,
+.📖-mark-crop-left,
+.📖-mark-crop-right {
+    top: calc(-1*var(--bindery-mark-length) - var(--bindery-bleed));
+    bottom: calc(-1*var(--bindery-mark-length) - var(--bindery-bleed))
+}
+
+.📖-mark-bleed-bottom,
+.📖-mark-bleed-top,
+.📖-mark-crop-bottom,
+.📖-mark-crop-top {
+    left: calc(-12pt - var(--bindery-bleed));
+    right: calc(-12pt - var(--bindery-bleed))
+}
+
+.📖-mark-bleed-left {
+    left: calc(-1*var(--bindery-bleed))
+}
+
+.📖-mark-bleed-right {
+    right: calc(-1*var(--bindery-bleed))
+}
+
+.📖-mark-bleed-top {
+    top: calc(-1*var(--bindery-bleed))
+}
+
+.📖-mark-bleed-bottom {
+    bottom: calc(-1*var(--bindery-bleed))
+}
+
+.📖-root.📖-view-flip {
+    max-height: 100vh
+}
+
+.📖-view-flip .📖-zoom-holder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    display: block
+}
+
+.📖-view-flip .📖-zoom-scaler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    transform-origin: center;
+    width: 0;
+    height: 0
+}
+
+.📖-view-flip .📖-zoom-content {
+    min-width: 0
+}
+
+.📖-flap-holder {
+    perspective: 5000px;
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto
+}
+
+.📖-flipbook-sizer {
+    --bindery-flipbook-width: calc(var(--bindery-spread-width)*1.15);
+    --bindery-flipbook-height: calc(var(--bindery-page-height)*1.05);
+    position: absolute;
+    width: var(--bindery-flipbook-width);
+    height: var(--bindery-flipbook-height);
+    top: calc(var(--bindery-flipbook-height)*-0.5);
+    left: calc(var(--bindery-flipbook-width)*-0.5)
+}
+
+.📖-page3d {
+    margin: auto;
+    width: var(--bindery-page-width);
+    height: var(--bindery-page-height);
+    transform: rotateY(0);
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: transform .5s, box-shadow .1s;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0
+}
+
+.📖-page3d:hover {
+    box-shadow: 15px 10px 15px #59ffe9/* EDIT: Flipbook: Hover Farbe */
+}
+
+.📖-page3d.📖-flipped {
+    transform: rotateY(-180deg)
+}
+
+.📖-page3d .📖-page {
+    position: absolute;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.2);
+    /* EDIT: Flipbook: Schatten Seite */
+    border: 0.5px solid rgba(255, 255, 255, 0.5);
+    /* EDIT: Flipbook: Outline Seite */
+}
+
+.📖-page3d .📖-page3d-front {
+    transform: rotateY(0)
+}
+
+.📖-page3d .📖-page3d-back {
+    transform: rotateY(-180deg)
+}

@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'PP Mondwest';
+    src: url('fonts/PPMondwest/PPMondwest-Regular.eot');
+    src: url('fonts/PPMondwest/PPMondwest-Regular.woff2') format('woff2');
+    src: url('fonts/PPMondwest/PPMondwest-Regular.woff') format('woff');
+    src: url('fonts/PPMondwest/PPMondwest-Regular.ttf') format('truetype');
+    font-style: normal;
+}

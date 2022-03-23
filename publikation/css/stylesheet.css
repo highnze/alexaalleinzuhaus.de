@@ -1,0 +1,542 @@
+:root {
+    --highlight-color: #59ffe9;
+    --bodytext-color: #ffffff;
+    --bodytext-invert: #000000;
+}
+
+body {
+    font-family: 'Edu Monument Grotesk Variable', 'Open Sans', sans-serif;
+    color: var(--bodytext-color);
+    font-weight: 500;
+    font-feature-settings: "ss01", "ss03", "ss04";
+}
+
+
+/* BINDERY HACKS */
+
+#bindery-choose-view option {
+    background-color: #000;
+    color: var(--highlight-color);
+}
+
+#bindery-choose-view option[value=print] {
+    display: none;
+}
+
+.📖-controls .📖-btn-print {
+    display: none;
+}
+
+.📖-control .📖-btn .📖-btn-print .📖-btn-main {
+    display: none;
+}
+
+.print-link-btn {
+    /* Bindery hack */
+    position: fixed;
+    top: 8px;
+    right: 2px;
+    color: rgb(255, 255, 255);
+    background: var(--bindery-ui-accent);
+    border-color: var(--bindery-ui-accent);
+    /* custom css */
+    z-index: 99;
+    text-decoration: none;
+    font-family: 'Edu Monument Grotesk Variable', 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal !important;
+    font-size: 10.5pt;
+}
+
+.print-link-btn:hover {
+    background-color: var(--highlight-color);
+    color: var(--bodytext-invert);
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 10px 0 var(--highlight-color);
+}
+
+  /* Dropdown */
+
+  .dd-input {
+    display: none;
+  }
+
+  .dd-menu {
+    position: absolute;
+    top: 100%;
+    border-radius: 10px;
+    padding: 5px 15px 5px 10px;
+    margin: 6px 1px 0 -8px;
+    background-color: var(--highlight-color);
+    list-style-type: none;
+  }
+
+  .dd-input + .dd-menu {
+    display: none;
+  }
+
+  .dd-input:checked + .dd-menu {
+    display: block;
+  }
+
+  .dd-menu li  {
+    list-style: none;
+
+    padding: 3px 3px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .dd-menu li a {
+    font-size: 10pt;
+    display: block;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    text-decoration: none;
+  }
+
+  .dd-menu li a:hover {
+    font-style: italic;
+  }
+
+.📖-running-header {
+    font-family: 'Edu Monument Grotesk Variable', 'Open Sans', sans-serif;
+    font-feature-settings: "ss01", "ss03", "ss04";
+    font-weight: 400;
+    font-size: 9pt;
+}
+
+/* HEADLINES */
+
+h1, h2, h3, h4, h5 {
+    font-family: 'PP Mondwest', Lucida Console, Courier New, monospace;
+    font-weight: normal;
+    text-align: center;
+    color: var(--highlight-color);
+}
+
+h1 {
+    font-size: 96pt;
+    word-break: break-all;
+    text-align: center;
+    margin: 0.5em 0 0.25em 0;
+}
+#kap5 {
+    font-size: 80pt;
+}
+
+#kap12 {
+    font-size: 80pt;
+}
+
+h2 {
+    font-size: 44pt;
+    margin: 0.3em 0 0.3em 0;
+}
+
+h3 {
+    font-size: 32pt;
+    margin: 0.2em 0 0.2em 0;
+}
+
+h4 {
+    font-size: 26pt;
+    margin: 0.2em 0 0.2em 0;
+}
+
+h5 {
+    font-size: 20pt;
+    margin: 0.2em 0 0.2em 0;
+    text-align: left !important;
+}
+
+[id^="kap5-"] {
+    margin: 1em 0 2em 0;
+}
+
+
+/* HEADLINES SPEZIAL */
+
+.aazh1 {
+    font-family: 'PP Mondwest', Lucida Console, Courier New, monospace;
+    font-size: 74pt;
+    color: var(--highlight-color);
+    font-weight: normal;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.aazh2 {
+    font-family: 'PP Mondwest', Lucida Console, Courier New, monospace;
+    font-size: 110pt;
+    color: var(--highlight-color);
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.autor {
+    font-family: 'PP Mondwest', Lucida Console, Courier New, monospace;
+    font-size: 18pt;
+    color: var(--highlight-color);
+    font-weight: normal;
+    text-align: center;
+}
+
+.intro {
+    font-family: 'PP Mondwest', Lucida Console, Courier New, monospace;
+    font-size: 44pt;
+    font-weight: normal;
+    color: var(--highlight-color);
+    margin: 0 0 0 0;
+    padding: 0;
+    text-align: center;
+}
+
+.werkzeuge {
+    font-family: 'PP Mondwest', Lucida Console, Courier New, monospace;
+    font-weight: normal;
+    text-align: center;
+    color: var(--highlight-color);
+    font-size: 32pt;
+    margin: 0.2em 0 0.2em 0;
+}
+
+/* BODYTEXT */
+
+p {
+    font-family: 'Edu Monument Grotesk Variable', 'Open Sans', sans-serif;
+    font-feature-settings: "ss01", "ss03", "ss04";
+    font-size: 12.5pt;
+    line-height: 16.25pt;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+    text-justify: auto;
+    padding: 10px 0 10px 0;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+strong {
+    font-family: 'Edu Monument Grotesk Variable', 'Open Sans', sans-serif;
+    font-weight: 450;
+    color: var(--highlight-color);
+}
+
+em {
+    font-family: 'Edu Monument Grotesk Variable', 'Open Sans', sans-serif;
+    font-weight: 350;
+    font-style: italic;
+}
+
+a {
+    color: var(--highlight-color);
+    text-decoration-line: underline;
+    text-underline-offset: 1.5px;
+}
+
+blockquote {
+    margin-inline-start: 20px;
+    margin-inline-end: 20px;
+}
+
+blockquote p {
+    font-family: 'Edu Monument Grotesk Variable', 'Open Sans', sans-serif;
+    font-size: 11pt;
+    font-weight: 400;
+    font-feature-settings: "ss01", "ss03", "ss04";
+    color: var(--highlight-color);
+}
+
+mark {
+    background-color: var(--highlight-color);
+    color: var(--bodytext-invert);
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    font-family: 'Edu Monument Grotesk Variable', 'Open Sans', sans-serif;
+    font-size: 10.5pt;
+}
+
+
+/* FUSSNOTEN */
+
+.footnote-ref {
+    font-size: 8.5pt;
+    vertical-align: top;
+    position: relative;
+    top: -0.3em;
+}
+
+.footnote-ref a {
+    text-decoration: none;
+}
+
+.footnotes {
+    margin-top: 2.45rem;
+}
+
+.footnotes p {
+    font-size: 9.5pt;
+    line-height: 13.75pt;
+    overflow: auto;
+    padding-left: 1.5rem;
+    margin: 0;
+    padding: 0.75em 0 0.75em 1.5rem;
+}
+
+.footnote-item {
+    margin: 0;
+}
+
+.footnote-item::marker {
+    font-family: 'PP Mondwest', Lucida Console, Courier New, monospace;
+    font-weight: normal;
+    font-size: 12pt;
+}
+
+
+/* INHALTSVERZEICHNIS */
+
+.toc {
+    padding: 10px 10px 10px 10px;
+    margin: 16px 0 16px 0;
+    overflow: hidden;
+    color: var(--highlight-color);
+    font-family: 'Edu Monument Grotesk Variable', 'Open Sans', sans-serif;
+    font-weight: 450;
+    font-size: 11pt;
+    list-style: none;
+}
+
+.toc li {
+    list-style: none;
+}
+
+.toc ul a {
+    list-style: none;
+    color: var(--bodytext-color);
+    font-family: 'Edu Monument Grotesk Variable', 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 350;
+    text-decoration-color: var(--highlight-color);
+}
+
+/* IMAGES & iFRAMES */
+
+figcaption {
+    padding-top: 1em;
+    font-family: 'Edu Monument Grotesk Variable', 'Open Sans', sans-serif;
+    font-size: 9.5pt;
+    font-weight: 350;
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.schutzraum figcaption {
+    padding: 15pt;
+    font-weight: 400;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+img {
+    width: 100%;
+    height: auto;
+    padding-bottom: 0;
+}
+
+.schutzraum {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+.imagination {
+  /* padding-top: 11em;
+    /* width: 450px;
+    margin-left: 16mm;
+    margin-right: 16mm; 
+    width: 100%; */
+    padding-top: 11em;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.imagination figcaption {
+    font-size: 12pt;
+}
+
+.imaginationIMG figcaption {
+    font-size: 12pt;
+}
+.imaginationIMGbig figcaption {
+    font-size: 12pt;
+}
+
+.imaginationIMG {
+    padding-top: 9em;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.imaginationIMGbig {
+    padding-top: 5em;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.imaginationStaubsaugi {
+    margin-top: 6.75em;
+}
+
+iframe {
+    border: 0px;
+}
+
+.youtube {
+    margin-left: auto;
+    margin-right: auto;
+    display: block
+}
+.youtube iframe {
+    width: 100%;
+    min-height: auto;
+    margin: 0 auto;
+}
+
+ .youtube figcaption {
+    padding-top: 0;
+    font-family: 'Edu Monument Grotesk Variable', 'Open Sans', sans-serif;
+    font-size: 9.5pt;
+    font-weight: 350;
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+/* Special Classes & IDs */
+
+.qr-code {
+    width: 100%;
+    height: auto;
+    padding-bottom: 2em;
+}
+
+#pfeil {
+    font-family: 'PP Mondwest', Lucida Console, Courier New, monospace;
+    font-size: 48pt;
+    color: var(--highlight-color);
+}
+
+.schrift {
+    width: 50%;
+    pointer-events: none;
+    margin: 0 0 -10px 20px;
+    padding: 0 0 0 0;
+}
+
+.impressum p {
+    font-size: 11pt;
+}
+
+.KapRef {
+color: var(--bodytext-color);
+}
+
+/* Tabelle */
+
+.index {
+margin-bottom: 1.85em;
+}
+table {
+    font-family: 'Edu Monument Grotesk Variable', 'Open Sans', sans-serif;
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+thead {
+    font-size: 9pt;
+    font-weight: 450;
+    color: var(--bodytext-invert);
+    background-color: var(--highlight-color);
+    padding: 0.3rem;
+}
+
+tbody {
+    font-size: 8.5pt;
+    font-weight: 400;
+}
+
+tr {
+    page-break-inside: avoid !important;
+}
+
+td,
+tr {
+    border: 1px solid var(--highlight-color);
+    padding: 0.3rem;
+    text-align: left;
+}
+
+th {
+    padding: 0.3rem;
+}
+
+@media screen {
+    .📖-show-bleed .📖-page .toc ul {
+        color: var(---bodytext-invert) !important;
+    }
+}
+
+@media print {
+    :root {
+        --highlight-color: #45b8a8;
+    }
+    .📖-page .toc ul {
+        color: black;
+    }
+
+    .print-link-btn{
+        display: none !important
+    }
+
+    .videoWrapper iframe {
+        background-color: hsla(172, 100%, 67%, 0.705);
+    }
+
+    .youtube iframe {
+    background-color: var(--highlight-color);
+    }
+
+    iframe {
+        background-color: var(--highlight-color);
+        }
+
+    .KapRef {
+        color: var(---bodytext-invert) !important;
+        text-decoration: none;
+    }
+}
